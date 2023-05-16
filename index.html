@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog App</title>
+  <link rel="stylesheet" href="reset.css">
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <main>
+    <div class="container">
+      <div id="taskBlog" class="blog">
+        <div class="post">
+          <h1 class="title">Новый пост</h1>
+          <form id="taskForm" class="form">
+            <input id="tastInput" class="input" type="text" required placeholder="Заголовок">
+            <textarea id="taskTextarea" width = "100%" class="textarea" name="comment" required placeholder="Напиши пост"></textarea>
+            <button class="button">Опубликовать</button>
+            <span id="taskChekTitle" data-chek="title" class="chek">Заголовок больше 100 символов</span>
+            <span id="taskChekText" data-chek="text" class="chek">Пост больше 200 символов</span>
+          </form>
+        </div>
+        <div class="lenta">
+          <h2 class="lenta__title">Лента</h2>
+          <div id="taskLenta">
+            <p>Тут пока пусто...</p>
+            <!-- <div class="lenta-box">
+              <time class="lenta-box__time">20.05.2023 11:00</time>
+              <h3 class="lenta-box__title">Привет Мир</h3>
+              <p class="lenta-box__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam aliquet auctor iaculis.
+                Aliquam viverra ultrices dui.
+                Aenean dolor dolor, congue eget congue non, varius non urna.</p>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  
+  <script src="index.js"></script>
+</body>
+</html>
