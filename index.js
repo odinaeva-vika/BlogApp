@@ -33,7 +33,7 @@ toggleValidationWarning();
   });
   
   clearFromUser();
-  showLentaFromUser();
+  showNewsfeedFromUser();
 }
 
 const clearFromUser = () => {
@@ -43,7 +43,7 @@ const clearFromUser = () => {
   taskInput.focus();
 }
 
-const showLentaFromUser = () => {
+const showNewsfeedFromUser = () => {
   taskNewsfeed.innerText = "";
 
   posts.forEach((post) => {
