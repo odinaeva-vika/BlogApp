@@ -1,9 +1,9 @@
 const taskForm = document.querySelector("#taskForm");
 const taskInput = document.querySelector("#tastInput");
 const taskTextarea = document.querySelector("#taskTextarea");
-const taskLenta = document.querySelector("#taskLenta");
-const taskChekTitle = document.querySelector("#taskChekTitle");
-const taskChekText = document.querySelector("#taskChekText");
+const taskNewsfeed = document.querySelector("#taskNewsfeed");
+const taskCheckTitle = document.querySelector("#taskCheckTitle");
+const taskCheckText = document.querySelector("#taskCheckText");
 
 const posts = [];
 
@@ -16,11 +16,12 @@ const getFormHandler = (e) => {
   const title = getInputFromUser();
   const text = getTextareaFromUser();
   const date = new Date().toLocaleDateString();
-  const time = new Date().toLocaleTimeString().slice(0,-3);
+  const options = { hour: 'numeric', minute: 'numeric' };
+  const time = new Date().toLocaleTimeString([], options);
   
-  showFromUser();
+toggleValidationWarning();
 
-  if (getInputFromUser().length >= 100 || getTextareaFromUser().length >= 200) {
+  if (title.length >= 100 || text.length >= 200) {
     return; // прекращаем выполнение функции и не добавляем пост
   }
 
@@ -43,7 +44,7 @@ const clearFromUser = () => {
 }
 
 const showLentaFromUser = () => {
-  taskLenta.innerText = "";
+  taskNewsfeed.innerText = "";
 
   posts.forEach((post) => {
     const lentaItem = `<div class="lenta-box"> 
@@ -51,22 +52,22 @@ const showLentaFromUser = () => {
             <h3 class="lenta-box__title">${post.title}</h3>
             <p class="lenta-box__text">${post.text}</p>
           </div>`;
-         taskLenta.insertAdjacentHTML("beforeEnd", lentaItem); 
+         taskNewsfeed.insertAdjacentHTML("beforeEnd", lentaItem); 
   });    
 }
 
-const showFromUser = () => {
+const toggleValidationWarning = () => {
 
   if (getInputFromUser().length >= 100) {
-    taskChekTitle.classList.add("display");
+    taskCheckTitle.classList.add("display");
   } else {
-    taskChekTitle.classList.remove("display");
+    taskCheckTitle.classList.remove("display");
   }
 
   if (getTextareaFromUser().length >= 200) {
-    taskChekText.classList.add("display");
+    taskCheckText.classList.add("display");
   } else {
-    taskChekText.classList.remove("display");
+    taskCheckText.classList.remove("display");
   }
 };
 
